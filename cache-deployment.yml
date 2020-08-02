@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache
+spec:
+  selector:
+    matchLabels:
+      app: cache
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+      - image: docker.io/library/memcached
+        imagePullPolicy: Always
+        name: cache
+        ports:
+        - containerPort: 11211
+          protocol: TCP
+      restartPolicy: Always

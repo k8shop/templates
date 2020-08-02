@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  selector:
+    matchLabels:
+      app: database
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - image: docker.io/library/mariadb
+        imagePullPolicy: Always
+        name: database
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: th00perThecure
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: database-volume
+      restartPolicy: Always
+      volumes:
+      - name: database-volume
+        persistentVolumeClaim:
+          claimName: database
