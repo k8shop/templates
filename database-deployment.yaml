@@ -19,9 +19,6 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: th00perThecure
-        ports:
-        - containerPort: 3306
-          protocol: TCP
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: database-volume

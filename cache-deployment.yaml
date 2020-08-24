@@ -16,7 +16,4 @@ spec:
       - image: docker.io/library/memcached
         imagePullPolicy: Always
         name: cache
-        ports:
-        - containerPort: 11211
-          protocol: TCP
       restartPolicy: Always

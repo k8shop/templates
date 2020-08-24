@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: docker.io/k8shop/go-rest-api:v0.0.1
+        imagePullPolicy: Always
+        name: api
+        envFrom:
+        - secretRef:
+            name: k8shop
+      restartPolicy: Always
