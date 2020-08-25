@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: api
+  name: frontend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: api.bikepacker.local
+  - host: bikepacker.local
     http:
       paths:
       - backend:
-          serviceName: api
+          serviceName: frontend
           servicePort: http
         path: /
         pathType: ImplementationSpecific
