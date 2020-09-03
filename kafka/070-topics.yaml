@@ -1,0 +1,19 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: products
+  labels:
+    strimzi.io/cluster: "kafka-cluster"
+spec:
+  partitions: 3
+  replicas: 1
+---
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: users
+  labels:
+    strimzi.io/cluster: "kafka-cluster"
+spec:
+  partitions: 3
+  replicas: 1
