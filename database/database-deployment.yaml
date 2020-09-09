@@ -18,7 +18,11 @@ spec:
         name: database
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: th00perThecure
+          value: REPLACE_ME
+        - name: MYSQL_USER
+          value: REPLACE_ME
+        - name: MYSQL_PASSWORD
+          value: REPLACE_ME
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: database-volume
